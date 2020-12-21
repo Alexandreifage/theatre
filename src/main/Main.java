@@ -1,5 +1,7 @@
 package main;
 
-public class Main {
+import fauteuil.Fauteuil;
 
+public class Main {
+	
 }

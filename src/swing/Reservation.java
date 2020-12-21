@@ -3,6 +3,7 @@ package swing;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 /**
  * Test Actions which are ActionListeners that can be applied to more than one
@@ -12,144 +13,15 @@ import java.awt.event.*;
 @SuppressWarnings("serial")
 public class Reservation extends JFrame {
 	private JTextField tfCount;
-	private int count;
+	private Integer count = 120;
+	ArrayList<JButton> lstBtnSelect = new ArrayList<>();
 
 	/** Constructor to setup the GUI */
 	public Reservation() {
 		// Create the Actions shared by the button and menu-item
-		Action fauteuilA01Action = new CountUpAction("A 01", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilA02Action = new CountUpAction("A 02", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilA03Action = new CountUpAction("A 03", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilA04Action = new CountUpAction("A 04", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilA05Action = new CountUpAction("A 05", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilA06Action = new CountUpAction("A 06", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilA07Action = new CountUpAction("A 07", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilA08Action = new CountUpAction("A 08", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilA09Action = new CountUpAction("A 09", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilA10Action = new CountUpAction("A 10", "To count up", new Integer(KeyEvent.VK_U));
+		
 
-		Action fauteuilB01Action = new CountUpAction("B 01", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilB02Action = new CountUpAction("B 02", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilB03Action = new CountUpAction("B 03", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilB04Action = new CountUpAction("B 04", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilB05Action = new CountUpAction("B 05", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilB06Action = new CountUpAction("B 06", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilB07Action = new CountUpAction("B 07", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilB08Action = new CountUpAction("B 08", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilB09Action = new CountUpAction("B 09", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilB10Action = new CountUpAction("B 10", "To count up", new Integer(KeyEvent.VK_U));
-
-		Action fauteuilC01Action = new CountUpAction("C 01", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilC02Action = new CountUpAction("C 02", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilC03Action = new CountUpAction("C 03", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilC04Action = new CountUpAction("C 04", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilC05Action = new CountUpAction("C 05", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilC06Action = new CountUpAction("C 06", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilC07Action = new CountUpAction("C 07", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilC08Action = new CountUpAction("C 08", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilC09Action = new CountUpAction("C 09", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilC10Action = new CountUpAction("C 10", "To count up", new Integer(KeyEvent.VK_U));
-
-		Action fauteuilD01Action = new CountUpAction("D 01", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilD02Action = new CountUpAction("D 02", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilD03Action = new CountUpAction("D 03", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilD04Action = new CountUpAction("D 04", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilD05Action = new CountUpAction("D 05", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilD06Action = new CountUpAction("D 06", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilD07Action = new CountUpAction("D 07", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilD08Action = new CountUpAction("D 08", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilD09Action = new CountUpAction("D 09", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilD10Action = new CountUpAction("D 10", "To count up", new Integer(KeyEvent.VK_U));
-
-		Action fauteuilE01Action = new CountUpAction("E 01", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilE02Action = new CountUpAction("E 02", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilE03Action = new CountUpAction("E 03", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilE04Action = new CountUpAction("E 04", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilE05Action = new CountUpAction("E 05", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilE06Action = new CountUpAction("E 06", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilE07Action = new CountUpAction("E 07", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilE08Action = new CountUpAction("E 08", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilE09Action = new CountUpAction("E 09", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilE10Action = new CountUpAction("E 10", "To count up", new Integer(KeyEvent.VK_U));
-
-		Action fauteuilF01Action = new CountUpAction("F 02", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilF02Action = new CountUpAction("F 02", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilF03Action = new CountUpAction("F 03", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilF04Action = new CountUpAction("F 04", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilF05Action = new CountUpAction("F 05", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilF06Action = new CountUpAction("F 06", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilF07Action = new CountUpAction("F 07", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilF08Action = new CountUpAction("F 08", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilF09Action = new CountUpAction("F 09", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilF10Action = new CountUpAction("F 10", "To count up", new Integer(KeyEvent.VK_U));
-
-		Action fauteuilG01Action = new CountUpAction("G 01", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilG02Action = new CountUpAction("G 02", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilG03Action = new CountUpAction("G 03", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilG04Action = new CountUpAction("G 04", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilG05Action = new CountUpAction("G 05", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilG06Action = new CountUpAction("G 06", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilG07Action = new CountUpAction("G 07", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilG08Action = new CountUpAction("G 08", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilG09Action = new CountUpAction("G 09", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilG10Action = new CountUpAction("G 10", "To count up", new Integer(KeyEvent.VK_U));
-
-		Action fauteuilH01Action = new CountUpAction("H 01", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilH02Action = new CountUpAction("H 02", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilH03Action = new CountUpAction("H 03", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilH04Action = new CountUpAction("H 04", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilH05Action = new CountUpAction("H 05", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilH06Action = new CountUpAction("H 06", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilH07Action = new CountUpAction("H 07", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilH08Action = new CountUpAction("H 08", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilH09Action = new CountUpAction("H 09", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilH10Action = new CountUpAction("H 10", "To count up", new Integer(KeyEvent.VK_U));
-
-		Action fauteuilI01Action = new CountUpAction("I 01", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilI02Action = new CountUpAction("I 02", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilI03Action = new CountUpAction("I 03", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilI04Action = new CountUpAction("I 04", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilI05Action = new CountUpAction("I 05", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilI06Action = new CountUpAction("I 06", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilI07Action = new CountUpAction("I 07", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilI08Action = new CountUpAction("I 08", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilI09Action = new CountUpAction("I 09", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilI10Action = new CountUpAction("I 10", "To count up", new Integer(KeyEvent.VK_U));
-
-		Action fauteuilJ01Action = new CountUpAction("J 01", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilJ02Action = new CountUpAction("J 02", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilJ03Action = new CountUpAction("J 03", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilJ04Action = new CountUpAction("J 04", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilJ05Action = new CountUpAction("J 05", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilJ06Action = new CountUpAction("J 06", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilJ07Action = new CountUpAction("J 07", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilJ08Action = new CountUpAction("J 08", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilJ09Action = new CountUpAction("J 09", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilJ10Action = new CountUpAction("J 10", "To count up", new Integer(KeyEvent.VK_U));
-
-		Action fauteuilK01Action = new CountUpAction("K 01", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilK02Action = new CountUpAction("K 02", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilK03Action = new CountUpAction("K 03", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilK04Action = new CountUpAction("K 04", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilK05Action = new CountUpAction("K 05", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilK06Action = new CountUpAction("K 06", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilK07Action = new CountUpAction("K 07", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilK08Action = new CountUpAction("K 08", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilK09Action = new CountUpAction("K 09", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilK10Action = new CountUpAction("K 10", "To count up", new Integer(KeyEvent.VK_U));
-
-		Action fauteuilL01Action = new CountUpAction("L 01", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilL02Action = new CountUpAction("L 02", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilL03Action = new CountUpAction("L 03", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilL04Action = new CountUpAction("L 04", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilL05Action = new CountUpAction("L 05", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilL06Action = new CountUpAction("L 06", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilL07Action = new CountUpAction("L 07", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilL08Action = new CountUpAction("L 08", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilL09Action = new CountUpAction("L 09", "To count up", new Integer(KeyEvent.VK_U));
-		Action fauteuilL10Action = new CountUpAction("L 10", "To count up", new Integer(KeyEvent.VK_U));
-
-		Action countDownAction = new CountDownAction("Count Down", "To count down", new Integer(KeyEvent.VK_D));
+		//Action countDownAction = new CountDownAction("Count Down", "To count down", new Integer(KeyEvent.VK_D));
 		Action resetAction = new ResetAction("Reset", "To reset to zero", new Integer(KeyEvent.VK_R));
 
 		Container cp = getContentPane();
@@ -160,351 +32,471 @@ public class Reservation extends JFrame {
 		// frame VIDE
 		JPanel panelVide1 = new JPanel();
 		panelVide1.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		panelVide1.setPreferredSize(new Dimension(800, 50));
+		panelVide1.setPreferredSize(new Dimension(810, 50));
 		panelVide1.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 		cp.add(panelVide1);
 		// frame pour boutons rangée A
 		JPanel rangeeA = new JPanel();
 		rangeeA.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		rangeeA.setPreferredSize(new Dimension(800, 30));
+		rangeeA.setPreferredSize(new Dimension(810, 30));
 		rangeeA.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 		cp.add(rangeeA);
 		// frame pour boutons rangée B
 		JPanel rangeeB = new JPanel();
 		rangeeB.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		rangeeB.setPreferredSize(new Dimension(800, 30));
+		rangeeB.setPreferredSize(new Dimension(810, 30));
 		rangeeB.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 		cp.add(rangeeB);
 		// frame pour boutons rangée C
 		JPanel rangeeC = new JPanel();
 		rangeeC.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		rangeeC.setPreferredSize(new Dimension(800, 30));
+		rangeeC.setPreferredSize(new Dimension(810, 30));
 		rangeeC.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 		cp.add(rangeeC);
 		// frame pour boutons rangée D
 		JPanel rangeeD = new JPanel();
 		rangeeD.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		rangeeD.setPreferredSize(new Dimension(800, 30));
+		rangeeD.setPreferredSize(new Dimension(810, 30));
 		rangeeD.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 		cp.add(rangeeD);
 		// frame pour boutons rangée E
 		JPanel rangeeE = new JPanel();
 		rangeeE.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		rangeeE.setPreferredSize(new Dimension(800, 30));
+		rangeeE.setPreferredSize(new Dimension(810, 30));
 		rangeeE.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 		cp.add(rangeeE);
 		// frame pour boutons rangée F
 		JPanel rangeeF = new JPanel();
 		rangeeF.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		rangeeF.setPreferredSize(new Dimension(800, 30));
+		rangeeF.setPreferredSize(new Dimension(810, 30));
 		rangeeF.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 		cp.add(rangeeF);
 		// frame pour boutons rangée G
 		JPanel rangeeG = new JPanel();
 		rangeeG.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		rangeeG.setPreferredSize(new Dimension(800, 30));
+		rangeeG.setPreferredSize(new Dimension(810, 30));
 		rangeeG.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 		cp.add(rangeeG);
 		// frame pour boutons rangée H
 		JPanel rangeeH = new JPanel();
 		rangeeH.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		rangeeH.setPreferredSize(new Dimension(800, 30));
+		rangeeH.setPreferredSize(new Dimension(810, 30));
 		rangeeH.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 		cp.add(rangeeH);
 		// frame pour boutons rangée I
 		JPanel rangeeI = new JPanel();
 		rangeeI.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		rangeeI.setPreferredSize(new Dimension(800, 30));
+		rangeeI.setPreferredSize(new Dimension(810, 30));
 		rangeeI.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 		cp.add(rangeeI);
 		// frame pour boutons rangée J
 		JPanel rangeeJ = new JPanel();
 		rangeeJ.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		rangeeJ.setPreferredSize(new Dimension(800, 30));
+		rangeeJ.setPreferredSize(new Dimension(810, 30));
 		rangeeJ.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 		cp.add(rangeeJ);
 		// frame pour boutons rangée K
 		JPanel rangeeK = new JPanel();
 		rangeeK.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		rangeeK.setPreferredSize(new Dimension(800, 30));
+		rangeeK.setPreferredSize(new Dimension(810, 30));
 		rangeeK.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 		cp.add(rangeeK);
 		// frame pour boutons rangée L
 		JPanel rangeeL = new JPanel();
 		rangeeL.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		rangeeL.setPreferredSize(new Dimension(800, 30));
+		rangeeL.setPreferredSize(new Dimension(810, 30));
 		rangeeL.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 		cp.add(rangeeL);
 		// frame VIDE 2
 		JPanel panelVide2 = new JPanel();
 		panelVide2.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		panelVide2.setPreferredSize(new Dimension(800, 50));
+		panelVide2.setPreferredSize(new Dimension(810, 50));
 		panelVide2.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 		cp.add(panelVide2);
 		// frame pour autres boutons
 		JPanel panelAutresBoutons = new JPanel();
 		panelAutresBoutons.setBorder(BorderFactory.createLineBorder(Color.RED, 1));
-		panelAutresBoutons.setPreferredSize(new Dimension(800, 50));
+		panelAutresBoutons.setPreferredSize(new Dimension(810, 50));
 		panelAutresBoutons.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 		cp.add(panelAutresBoutons);
 
 		// Create buttons
 		panelAutresBoutons.add(new JLabel("Nombre de places restantes:"));
 
-		tfCount = new JTextField("120", 4);
+		tfCount = new JTextField(count.toString(), 4);
 		tfCount.setHorizontalAlignment(JTextField.RIGHT);
 		panelAutresBoutons.add(tfCount);
 
 		JButton fauteuilA01 = new JButton();
-		rangeeA.add(fauteuilA01);
+		Action fauteuilA01Action = new CountDownAction(fauteuilA01, "A 01", "Réserver fauteuil A 01", new Integer(KeyEvent.VK_U));
+		rangeeA.add(fauteuilA01);		
 		JButton fauteuilA02 = new JButton();
+		Action fauteuilA02Action = new CountDownAction(fauteuilA02, "A 02", "Réserver fauteuil A 02", new Integer(KeyEvent.VK_U));
 		rangeeA.add(fauteuilA02);
 		JButton fauteuilA03 = new JButton();
+		Action fauteuilA03Action = new CountDownAction(fauteuilA03,"A 03", "Réserver fauteuil A 03", new Integer(KeyEvent.VK_U));
 		rangeeA.add(fauteuilA03);
 		JButton fauteuilA04 = new JButton();
+		Action fauteuilA04Action = new CountDownAction(fauteuilA04,"A 04", "Réserver fauteuil A 04", new Integer(KeyEvent.VK_U));
 		rangeeA.add(fauteuilA04);
 		JButton fauteuilA05 = new JButton();
+		Action fauteuilA05Action = new CountDownAction(fauteuilA05,"A 05", "Réserver fauteuil A 05", new Integer(KeyEvent.VK_U));
 		rangeeA.add(fauteuilA05);
 		JButton fauteuilA06 = new JButton();
+		Action fauteuilA06Action = new CountDownAction(fauteuilA06,"A 06", "Réserver fauteuil A 06", new Integer(KeyEvent.VK_U));
 		rangeeA.add(fauteuilA06);
 		JButton fauteuilA07 = new JButton();
+		Action fauteuilA07Action = new CountDownAction(fauteuilA07,"A 07", "Réserver fauteuil A 07", new Integer(KeyEvent.VK_U));
 		rangeeA.add(fauteuilA07);
 		JButton fauteuilA08 = new JButton();
+		Action fauteuilA08Action = new CountDownAction(fauteuilA08,"A 08", "Réserver fauteuil A 08", new Integer(KeyEvent.VK_U));
 		rangeeA.add(fauteuilA08);
 		JButton fauteuilA09 = new JButton();
+		Action fauteuilA09Action = new CountDownAction(fauteuilA09,"A 09", "Réserver fauteuil A 09", new Integer(KeyEvent.VK_U));
 		rangeeA.add(fauteuilA09);
 		JButton fauteuilA10 = new JButton();
+		Action fauteuilA10Action = new CountDownAction(fauteuilA10,"A 10", "Réserver fauteuil A 10", new Integer(KeyEvent.VK_U));
 		rangeeA.add(fauteuilA10);
-
+		
 		JButton fauteuilB01 = new JButton();
+		Action fauteuilB01Action = new CountDownAction(fauteuilB01,"B 01", "Réserver fauteuil B 01", new Integer(KeyEvent.VK_U));
 		rangeeB.add(fauteuilB01);
 		JButton fauteuilB02 = new JButton();
+		Action fauteuilB02Action = new CountDownAction(fauteuilB02,"B 02", "Réserver fauteuil B 02", new Integer(KeyEvent.VK_U));
 		rangeeB.add(fauteuilB02);
 		JButton fauteuilB03 = new JButton();
+		Action fauteuilB03Action = new CountDownAction(fauteuilB03,"B 03", "Réserver fauteuil B 03", new Integer(KeyEvent.VK_U));
 		rangeeB.add(fauteuilB03);
 		JButton fauteuilB04 = new JButton();
+		Action fauteuilB04Action = new CountDownAction(fauteuilB04,"B 04", "Réserver fauteuil B 04", new Integer(KeyEvent.VK_U));
 		rangeeB.add(fauteuilB04);
 		JButton fauteuilB05 = new JButton();
+		Action fauteuilB05Action = new CountDownAction(fauteuilB05,"B 05", "Réserver fauteuil B 05", new Integer(KeyEvent.VK_U));
 		rangeeB.add(fauteuilB05);
 		JButton fauteuilB06 = new JButton();
+		Action fauteuilB06Action = new CountDownAction(fauteuilB06,"B 06", "Réserver fauteuil B 06", new Integer(KeyEvent.VK_U));
 		rangeeB.add(fauteuilB06);
 		JButton fauteuilB07 = new JButton();
+		Action fauteuilB07Action = new CountDownAction(fauteuilB07,"B 07", "Réserver fauteuil B 07", new Integer(KeyEvent.VK_U));
 		rangeeB.add(fauteuilB07);
 		JButton fauteuilB08 = new JButton();
+		Action fauteuilB08Action = new CountDownAction(fauteuilB08,"B 08", "Réserver fauteuil B 08", new Integer(KeyEvent.VK_U));
 		rangeeB.add(fauteuilB08);
 		JButton fauteuilB09 = new JButton();
+		Action fauteuilB09Action = new CountDownAction(fauteuilB09,"B 09", "Réserver fauteuil B 09", new Integer(KeyEvent.VK_U));
 		rangeeB.add(fauteuilB09);
 		JButton fauteuilB10 = new JButton();
+		Action fauteuilB10Action = new CountDownAction(fauteuilB10,"B 10", "Réserver fauteuil B 10", new Integer(KeyEvent.VK_U));
 		rangeeB.add(fauteuilB10);
 
 		JButton fauteuilC01 = new JButton();
+		Action fauteuilC01Action = new CountDownAction(fauteuilC01,"C 01", "Réserver fauteuil C 01", new Integer(KeyEvent.VK_U));
 		rangeeC.add(fauteuilC01);
 		JButton fauteuilC02 = new JButton();
+		Action fauteuilC02Action = new CountDownAction(fauteuilC02,"C 02", "Réserver fauteuil C 02", new Integer(KeyEvent.VK_U));
 		rangeeC.add(fauteuilC02);
 		JButton fauteuilC03 = new JButton();
+		Action fauteuilC03Action = new CountDownAction(fauteuilC03,"C 03", "Réserver fauteuil C 03", new Integer(KeyEvent.VK_U));
 		rangeeC.add(fauteuilC03);
 		JButton fauteuilC04 = new JButton();
+		Action fauteuilC04Action = new CountDownAction(fauteuilC04,"C 04", "Réserver fauteuil C 04", new Integer(KeyEvent.VK_U));
 		rangeeC.add(fauteuilC04);
 		JButton fauteuilC05 = new JButton();
+		Action fauteuilC05Action = new CountDownAction(fauteuilC05,"C 05", "Réserver fauteuil C 05", new Integer(KeyEvent.VK_U));
 		rangeeC.add(fauteuilC05);
 		JButton fauteuilC06 = new JButton();
+		Action fauteuilC06Action = new CountDownAction(fauteuilC06,"C 06", "Réserver fauteuil C 06", new Integer(KeyEvent.VK_U));
 		rangeeC.add(fauteuilC06);
 		JButton fauteuilC07 = new JButton();
+		Action fauteuilC07Action = new CountDownAction(fauteuilC07,"C 07", "Réserver fauteuil C 07", new Integer(KeyEvent.VK_U));
 		rangeeC.add(fauteuilC07);
 		JButton fauteuilC08 = new JButton();
+		Action fauteuilC08Action = new CountDownAction(fauteuilC08,"C 08", "Réserver fauteuil C 08", new Integer(KeyEvent.VK_U));
 		rangeeC.add(fauteuilC08);
 		JButton fauteuilC09 = new JButton();
+		Action fauteuilC09Action = new CountDownAction(fauteuilC09,"C 09", "Réserver fauteuil C 09", new Integer(KeyEvent.VK_U));
 		rangeeC.add(fauteuilC09);
 		JButton fauteuilC10 = new JButton();
+		Action fauteuilC10Action = new CountDownAction(fauteuilC10,"C 10", "Réserver fauteuil C 10", new Integer(KeyEvent.VK_U));
 		rangeeC.add(fauteuilC10);
 
 		JButton fauteuilD01 = new JButton();
+		Action fauteuilD01Action = new CountDownAction(fauteuilD01,"D 01", "Réserver fauteuil D 01", new Integer(KeyEvent.VK_U));
 		rangeeD.add(fauteuilD01);
 		JButton fauteuilD02 = new JButton();
+		Action fauteuilD02Action = new CountDownAction(fauteuilD02,"D 02", "Réserver fauteuil D 02", new Integer(KeyEvent.VK_U));
 		rangeeD.add(fauteuilD02);
 		JButton fauteuilD03 = new JButton();
+		Action fauteuilD03Action = new CountDownAction(fauteuilD03,"D 03", "Réserver fauteuil D 03", new Integer(KeyEvent.VK_U));
 		rangeeD.add(fauteuilD03);
 		JButton fauteuilD04 = new JButton();
+		Action fauteuilD04Action = new CountDownAction(fauteuilD04,"D 04", "Réserver fauteuil D 04", new Integer(KeyEvent.VK_U));
 		rangeeD.add(fauteuilD04);
 		JButton fauteuilD05 = new JButton();
+		Action fauteuilD05Action = new CountDownAction(fauteuilD05,"D 05", "Réserver fauteuil D 05", new Integer(KeyEvent.VK_U));
 		rangeeD.add(fauteuilD05);
 		JButton fauteuilD06 = new JButton();
+		Action fauteuilD06Action = new CountDownAction(fauteuilD06,"D 06", "Réserver fauteuil D 06", new Integer(KeyEvent.VK_U));
 		rangeeD.add(fauteuilD06);
 		JButton fauteuilD07 = new JButton();
+		Action fauteuilD07Action = new CountDownAction(fauteuilD07,"D 07", "Réserver fauteuil D 07", new Integer(KeyEvent.VK_U));
 		rangeeD.add(fauteuilD07);
 		JButton fauteuilD08 = new JButton();
+		Action fauteuilD08Action = new CountDownAction(fauteuilD08,"D 08", "Réserver fauteuil D 08", new Integer(KeyEvent.VK_U));
 		rangeeD.add(fauteuilD08);
 		JButton fauteuilD09 = new JButton();
+		Action fauteuilD09Action = new CountDownAction(fauteuilD09,"D 09", "Réserver fauteuil D 09", new Integer(KeyEvent.VK_U));
 		rangeeD.add(fauteuilD09);
 		JButton fauteuilD10 = new JButton();
+		Action fauteuilD10Action = new CountDownAction(fauteuilD10,"D 10", "Réserver fauteuil D 10", new Integer(KeyEvent.VK_U));
 		rangeeD.add(fauteuilD10);
 
 		JButton fauteuilE01 = new JButton();
+		Action fauteuilE01Action = new CountDownAction(fauteuilE01,"E 01", "Réserver fauteuil E 01", new Integer(KeyEvent.VK_U));
 		rangeeE.add(fauteuilE01);
 		JButton fauteuilE02 = new JButton();
+		Action fauteuilE02Action = new CountDownAction(fauteuilE02,"E 02", "Réserver fauteuil E 02", new Integer(KeyEvent.VK_U));
 		rangeeE.add(fauteuilE02);
 		JButton fauteuilE03 = new JButton();
+		Action fauteuilE03Action = new CountDownAction(fauteuilE03,"E 03", "Réserver fauteuil E 03", new Integer(KeyEvent.VK_U));
 		rangeeE.add(fauteuilE03);
 		JButton fauteuilE04 = new JButton();
+		Action fauteuilE04Action = new CountDownAction(fauteuilE04,"E 04", "Réserver fauteuil E 04", new Integer(KeyEvent.VK_U));
 		rangeeE.add(fauteuilE04);
 		JButton fauteuilE05 = new JButton();
+		Action fauteuilE05Action = new CountDownAction(fauteuilE05,"E 05", "Réserver fauteuil E 05", new Integer(KeyEvent.VK_U));
 		rangeeE.add(fauteuilE05);
 		JButton fauteuilE06 = new JButton();
+		Action fauteuilE06Action = new CountDownAction(fauteuilE06,"E 06", "Réserver fauteuil E 06", new Integer(KeyEvent.VK_U));
 		rangeeE.add(fauteuilE06);
 		JButton fauteuilE07 = new JButton();
+		Action fauteuilE07Action = new CountDownAction(fauteuilE07,"E 07", "Réserver fauteuil E 07", new Integer(KeyEvent.VK_U));
 		rangeeE.add(fauteuilE07);
 		JButton fauteuilE08 = new JButton();
+		Action fauteuilE08Action = new CountDownAction(fauteuilE08,"E 08", "Réserver fauteuil E 08", new Integer(KeyEvent.VK_U));
 		rangeeE.add(fauteuilE08);
 		JButton fauteuilE09 = new JButton();
+		Action fauteuilE09Action = new CountDownAction(fauteuilE09,"E 09", "Réserver fauteuil E 09", new Integer(KeyEvent.VK_U));
 		rangeeE.add(fauteuilE09);
 		JButton fauteuilE10 = new JButton();
+		Action fauteuilE10Action = new CountDownAction(fauteuilE10,"E 10", "Réserver fauteuil E 10", new Integer(KeyEvent.VK_U));
 		rangeeE.add(fauteuilE10);
 
 		JButton fauteuilF01 = new JButton();
+		Action fauteuilF01Action = new CountDownAction(fauteuilF01,"F 01", "Réserver fauteuil F 01", new Integer(KeyEvent.VK_U));
 		rangeeF.add(fauteuilF01);
 		JButton fauteuilF02 = new JButton();
+		Action fauteuilF02Action = new CountDownAction(fauteuilF02,"F 02", "Réserver fauteuil F 02", new Integer(KeyEvent.VK_U));
 		rangeeF.add(fauteuilF02);
 		JButton fauteuilF03 = new JButton();
+		Action fauteuilF03Action = new CountDownAction(fauteuilF03,"F 03", "Réserver fauteuil F 03", new Integer(KeyEvent.VK_U));
 		rangeeF.add(fauteuilF03);
 		JButton fauteuilF04 = new JButton();
+		Action fauteuilF04Action = new CountDownAction(fauteuilF04,"F 04", "Réserver fauteuil F 04", new Integer(KeyEvent.VK_U));
 		rangeeF.add(fauteuilF04);
 		JButton fauteuilF05 = new JButton();
+		Action fauteuilF05Action = new CountDownAction(fauteuilF05,"F 05", "Réserver fauteuil F 05", new Integer(KeyEvent.VK_U));
 		rangeeF.add(fauteuilF05);
 		JButton fauteuilF06 = new JButton();
+		Action fauteuilF06Action = new CountDownAction(fauteuilF06,"F 06", "Réserver fauteuil F 06", new Integer(KeyEvent.VK_U));
 		rangeeF.add(fauteuilF06);
 		JButton fauteuilF07 = new JButton();
+		Action fauteuilF07Action = new CountDownAction(fauteuilF07,"F 07", "Réserver fauteuil F 07", new Integer(KeyEvent.VK_U));
 		rangeeF.add(fauteuilF07);
 		JButton fauteuilF08 = new JButton();
+		Action fauteuilF08Action = new CountDownAction(fauteuilF08,"F 08", "Réserver fauteuil F 08", new Integer(KeyEvent.VK_U));
 		rangeeF.add(fauteuilF08);
 		JButton fauteuilF09 = new JButton();
+		Action fauteuilF09Action = new CountDownAction(fauteuilF09,"F 09", "Réserver fauteuil F 09", new Integer(KeyEvent.VK_U));
 		rangeeF.add(fauteuilF09);
 		JButton fauteuilF10 = new JButton();
+		Action fauteuilF10Action = new CountDownAction(fauteuilF10,"F 10", "Réserver fauteuil F 10", new Integer(KeyEvent.VK_U));
 		rangeeF.add(fauteuilF10);
 
 		JButton fauteuilG01 = new JButton();
+		Action fauteuilG01Action = new CountDownAction(fauteuilG01,"G 01", "Réserver fauteuil G 01", new Integer(KeyEvent.VK_U));
 		rangeeG.add(fauteuilG01);
 		JButton fauteuilG02 = new JButton();
+		Action fauteuilG02Action = new CountDownAction(fauteuilG02,"G 02", "Réserver fauteuil G 02", new Integer(KeyEvent.VK_U));
 		rangeeG.add(fauteuilG02);
 		JButton fauteuilG03 = new JButton();
+		Action fauteuilG03Action = new CountDownAction(fauteuilG03,"G 03", "Réserver fauteuil G 03", new Integer(KeyEvent.VK_U));
 		rangeeG.add(fauteuilG03);
 		JButton fauteuilG04 = new JButton();
+		Action fauteuilG04Action = new CountDownAction(fauteuilG04,"G 04", "Réserver fauteuil G 04", new Integer(KeyEvent.VK_U));
 		rangeeG.add(fauteuilG04);
 		JButton fauteuilG05 = new JButton();
+		Action fauteuilG05Action = new CountDownAction(fauteuilG05,"G 05", "Réserver fauteuil G 05", new Integer(KeyEvent.VK_U));
 		rangeeG.add(fauteuilG05);
 		JButton fauteuilG06 = new JButton();
+		Action fauteuilG06Action = new CountDownAction(fauteuilG06,"G 06", "Réserver fauteuil G 06", new Integer(KeyEvent.VK_U));
 		rangeeG.add(fauteuilG06);
 		JButton fauteuilG07 = new JButton();
+		Action fauteuilG07Action = new CountDownAction(fauteuilG07,"G 07", "Réserver fauteuil G 07", new Integer(KeyEvent.VK_U));
 		rangeeG.add(fauteuilG07);
 		JButton fauteuilG08 = new JButton();
+		Action fauteuilG08Action = new CountDownAction(fauteuilG08,"G 08", "Réserver fauteuil G 08", new Integer(KeyEvent.VK_U));
 		rangeeG.add(fauteuilG08);
 		JButton fauteuilG09 = new JButton();
+		Action fauteuilG09Action = new CountDownAction(fauteuilG09,"G 09", "Réserver fauteuil G 09", new Integer(KeyEvent.VK_U));
 		rangeeG.add(fauteuilG09);
 		JButton fauteuilG10 = new JButton();
+		Action fauteuilG10Action = new CountDownAction(fauteuilG10,"G 10", "Réserver fauteuil G 10", new Integer(KeyEvent.VK_U));
 		rangeeG.add(fauteuilG10);
 
 		JButton fauteuilH01 = new JButton();
+		Action fauteuilH01Action = new CountDownAction(fauteuilH01,"H 01", "Réserver fauteuil H 01", new Integer(KeyEvent.VK_U));
 		rangeeH.add(fauteuilH01);
 		JButton fauteuilH02 = new JButton();
+		Action fauteuilH02Action = new CountDownAction(fauteuilH02,"H 02", "Réserver fauteuil H 02", new Integer(KeyEvent.VK_U));
 		rangeeH.add(fauteuilH02);
 		JButton fauteuilH03 = new JButton();
+		Action fauteuilH03Action = new CountDownAction(fauteuilH03,"H 03", "Réserver fauteuil H 03", new Integer(KeyEvent.VK_U));
 		rangeeH.add(fauteuilH03);
 		JButton fauteuilH04 = new JButton();
+		Action fauteuilH04Action = new CountDownAction(fauteuilH04,"H 04", "Réserver fauteuil H 04", new Integer(KeyEvent.VK_U));
 		rangeeH.add(fauteuilH04);
 		JButton fauteuilH05 = new JButton();
+		Action fauteuilH05Action = new CountDownAction(fauteuilH05,"H 05", "Réserver fauteuil H 05", new Integer(KeyEvent.VK_U));
 		rangeeH.add(fauteuilH05);
 		JButton fauteuilH06 = new JButton();
+		Action fauteuilH06Action = new CountDownAction(fauteuilH06,"H 06", "Réserver fauteuil H 06", new Integer(KeyEvent.VK_U));
 		rangeeH.add(fauteuilH06);
 		JButton fauteuilH07 = new JButton();
+		Action fauteuilH07Action = new CountDownAction(fauteuilH07,"H 07", "Réserver fauteuil H 07", new Integer(KeyEvent.VK_U));
 		rangeeH.add(fauteuilH07);
 		JButton fauteuilH08 = new JButton();
+		Action fauteuilH08Action = new CountDownAction(fauteuilH08,"H 08", "Réserver fauteuil H 08", new Integer(KeyEvent.VK_U));
 		rangeeH.add(fauteuilH08);
 		JButton fauteuilH09 = new JButton();
+		Action fauteuilH09Action = new CountDownAction(fauteuilH09,"H 09", "Réserver fauteuil H 09", new Integer(KeyEvent.VK_U));
 		rangeeH.add(fauteuilH09);
 		JButton fauteuilH10 = new JButton();
+		Action fauteuilH10Action = new CountDownAction(fauteuilH10,"H 10", "Réserver fauteuil H 10", new Integer(KeyEvent.VK_U));
 		rangeeH.add(fauteuilH10);
 
 		JButton fauteuilI01 = new JButton();
+		Action fauteuilI01Action = new CountDownAction(fauteuilI01,"I 01", "Réserver fauteuil I 01", new Integer(KeyEvent.VK_U));
 		rangeeI.add(fauteuilI01);
 		JButton fauteuilI02 = new JButton();
+		Action fauteuilI02Action = new CountDownAction(fauteuilI02,"I 02", "Réserver fauteuil I 02", new Integer(KeyEvent.VK_U));
 		rangeeI.add(fauteuilI02);
 		JButton fauteuilI03 = new JButton();
+		Action fauteuilI03Action = new CountDownAction(fauteuilI02,"I 03", "Réserver fauteuil I 03", new Integer(KeyEvent.VK_U));
 		rangeeI.add(fauteuilI03);
 		JButton fauteuilI04 = new JButton();
+		Action fauteuilI04Action = new CountDownAction(fauteuilI04,"I 04", "Réserver fauteuil I 04", new Integer(KeyEvent.VK_U));
 		rangeeI.add(fauteuilI04);
 		JButton fauteuilI05 = new JButton();
+		Action fauteuilI05Action = new CountDownAction(fauteuilI05,"I 05", "Réserver fauteuil I 015", new Integer(KeyEvent.VK_U));
 		rangeeI.add(fauteuilI05);
 		JButton fauteuilI06 = new JButton();
+		Action fauteuilI06Action = new CountDownAction(fauteuilI06,"I 06", "Réserver fauteuil I 06", new Integer(KeyEvent.VK_U));
 		rangeeI.add(fauteuilI06);
 		JButton fauteuilI07 = new JButton();
+		Action fauteuilI07Action = new CountDownAction(fauteuilI07,"I 07", "Réserver fauteuil I 07", new Integer(KeyEvent.VK_U));
 		rangeeI.add(fauteuilI07);
 		JButton fauteuilI08 = new JButton();
+		Action fauteuilI08Action = new CountDownAction(fauteuilI08,"I 08", "Réserver fauteuil I 08", new Integer(KeyEvent.VK_U));
 		rangeeI.add(fauteuilI08);
 		JButton fauteuilI09 = new JButton();
+		Action fauteuilI09Action = new CountDownAction(fauteuilI09,"I 09", "Réserver fauteuil I 09", new Integer(KeyEvent.VK_U));
 		rangeeI.add(fauteuilI09);
 		JButton fauteuilI10 = new JButton();
+		Action fauteuilI10Action = new CountDownAction(fauteuilI10,"I 10", "Réserver fauteuil I 10", new Integer(KeyEvent.VK_U));
 		rangeeI.add(fauteuilI10);
 
 		JButton fauteuilJ01 = new JButton();
+		Action fauteuilJ01Action = new CountDownAction(fauteuilJ01,"J 01", "Réserver fauteuil J 01", new Integer(KeyEvent.VK_U));
 		rangeeJ.add(fauteuilJ01);
 		JButton fauteuilJ02 = new JButton();
+		Action fauteuilJ02Action = new CountDownAction(fauteuilJ02,"J 02", "Réserver fauteuil J 02", new Integer(KeyEvent.VK_U));
 		rangeeJ.add(fauteuilJ02);
 		JButton fauteuilJ03 = new JButton();
+		Action fauteuilJ03Action = new CountDownAction(fauteuilJ03,"J 03", "Réserver fauteuil J 03", new Integer(KeyEvent.VK_U));
 		rangeeJ.add(fauteuilJ03);
 		JButton fauteuilJ04 = new JButton();
+		Action fauteuilJ04Action = new CountDownAction(fauteuilJ04,"J 04", "Réserver fauteuil J 04", new Integer(KeyEvent.VK_U));
 		rangeeJ.add(fauteuilJ04);
 		JButton fauteuilJ05 = new JButton();
+		Action fauteuilJ05Action = new CountDownAction(fauteuilJ05,"J 05", "Réserver fauteuil J 05", new Integer(KeyEvent.VK_U));
 		rangeeJ.add(fauteuilJ05);
 		JButton fauteuilJ06 = new JButton();
+		Action fauteuilJ06Action = new CountDownAction(fauteuilJ06,"J 06", "Réserver fauteuil J 06", new Integer(KeyEvent.VK_U));
 		rangeeJ.add(fauteuilJ06);
 		JButton fauteuilJ07 = new JButton();
+		Action fauteuilJ07Action = new CountDownAction(fauteuilJ07,"J 07", "Réserver fauteuil J 07", new Integer(KeyEvent.VK_U));
 		rangeeJ.add(fauteuilJ07);
 		JButton fauteuilJ08 = new JButton();
+		Action fauteuilJ08Action = new CountDownAction(fauteuilJ08,"J 08", "Réserver fauteuil J 08", new Integer(KeyEvent.VK_U));
 		rangeeJ.add(fauteuilJ08);
 		JButton fauteuilJ09 = new JButton();
+		Action fauteuilJ09Action = new CountDownAction(fauteuilJ09,"J 09", "Réserver fauteuil J 09", new Integer(KeyEvent.VK_U));
 		rangeeJ.add(fauteuilJ09);
 		JButton fauteuilJ10 = new JButton();
+		Action fauteuilJ10Action = new CountDownAction(fauteuilJ10,"J 10", "Réserver fauteuil J 10", new Integer(KeyEvent.VK_U));
 		rangeeJ.add(fauteuilJ10);
 
 		JButton fauteuilK01 = new JButton();
+		Action fauteuilK01Action = new CountDownAction(fauteuilK01,"K 01", "Réserver fauteuil K 01", new Integer(KeyEvent.VK_U));
 		rangeeK.add(fauteuilK01);
 		JButton fauteuilK02 = new JButton();
+		Action fauteuilK02Action = new CountDownAction(fauteuilK02,"K 02", "Réserver fauteuil K 02", new Integer(KeyEvent.VK_U));
 		rangeeK.add(fauteuilK02);
 		JButton fauteuilK03 = new JButton();
+		Action fauteuilK03Action = new CountDownAction(fauteuilK03,"K 03", "Réserver fauteuil K 03", new Integer(KeyEvent.VK_U));
 		rangeeK.add(fauteuilK03);
 		JButton fauteuilK04 = new JButton();
+		Action fauteuilK04Action = new CountDownAction(fauteuilK04,"K 04", "Réserver fauteuil K 04", new Integer(KeyEvent.VK_U));
 		rangeeK.add(fauteuilK04);
 		JButton fauteuilK05 = new JButton();
+		Action fauteuilK05Action = new CountDownAction(fauteuilK05,"K 05", "Réserver fauteuil K 05", new Integer(KeyEvent.VK_U));
 		rangeeK.add(fauteuilK05);
 		JButton fauteuilK06 = new JButton();
+		Action fauteuilK06Action = new CountDownAction(fauteuilK06,"K 06", "Réserver fauteuil K 06", new Integer(KeyEvent.VK_U));
 		rangeeK.add(fauteuilK06);
 		JButton fauteuilK07 = new JButton();
+		Action fauteuilK07Action = new CountDownAction(fauteuilK07,"K 07", "Réserver fauteuil K 07", new Integer(KeyEvent.VK_U));
 		rangeeK.add(fauteuilK07);
 		JButton fauteuilK08 = new JButton();
+		Action fauteuilK08Action = new CountDownAction(fauteuilK08,"K 08", "Réserver fauteuil K 08", new Integer(KeyEvent.VK_U));
 		rangeeK.add(fauteuilK08);
 		JButton fauteuilK09 = new JButton();
+		Action fauteuilK09Action = new CountDownAction(fauteuilK09,"K 09", "Réserver fauteuil K 09", new Integer(KeyEvent.VK_U));
 		rangeeK.add(fauteuilK09);
 		JButton fauteuilK10 = new JButton();
+		Action fauteuilK10Action = new CountDownAction(fauteuilK10,"K 10", "Réserver fauteuil K 10", new Integer(KeyEvent.VK_U));
 		rangeeK.add(fauteuilK10);
 
 		JButton fauteuilL01 = new JButton();
+		Action fauteuilL01Action = new CountDownAction(fauteuilL01,"L 01", "Réserver fauteuil L 01", new Integer(KeyEvent.VK_U));
 		rangeeL.add(fauteuilL01);
 		JButton fauteuilL02 = new JButton();
+		Action fauteuilL02Action = new CountDownAction(fauteuilL02,"L 02", "Réserver fauteuil L 02", new Integer(KeyEvent.VK_U));
 		rangeeL.add(fauteuilL02);
 		JButton fauteuilL03 = new JButton();
+		Action fauteuilL03Action = new CountDownAction(fauteuilL03,"L 03", "Réserver fauteuil L 03", new Integer(KeyEvent.VK_U));
 		rangeeL.add(fauteuilL03);
 		JButton fauteuilL04 = new JButton();
+		Action fauteuilL04Action = new CountDownAction(fauteuilL04,"L 04", "Réserver fauteuil L 04", new Integer(KeyEvent.VK_U));
 		rangeeL.add(fauteuilL04);
 		JButton fauteuilL05 = new JButton();
+		Action fauteuilL05Action = new CountDownAction(fauteuilL05,"L 05", "Réserver fauteuil L 05", new Integer(KeyEvent.VK_U));
 		rangeeL.add(fauteuilL05);
 		JButton fauteuilL06 = new JButton();
+		Action fauteuilL06Action = new CountDownAction(fauteuilL06,"L 06", "Réserver fauteuil L 06", new Integer(KeyEvent.VK_U));
 		rangeeL.add(fauteuilL06);
 		JButton fauteuilL07 = new JButton();
+		Action fauteuilL07Action = new CountDownAction(fauteuilL07,"L 07", "Réserver fauteuil L 07", new Integer(KeyEvent.VK_U));
 		rangeeL.add(fauteuilL07);
 		JButton fauteuilL08 = new JButton();
+		Action fauteuilL08Action = new CountDownAction(fauteuilL08,"L 08", "Réserver fauteuil L 08", new Integer(KeyEvent.VK_U));
 		rangeeL.add(fauteuilL08);
 		JButton fauteuilL09 = new JButton();
+		Action fauteuilL09Action = new CountDownAction(fauteuilL09,"L 09", "Réserver fauteuil L 09", new Integer(KeyEvent.VK_U));
 		rangeeL.add(fauteuilL09);
 		JButton fauteuilL10 = new JButton();
+		Action fauteuilL10Action = new CountDownAction(fauteuilL10,"L 10", "Réserver fauteuil L 10", new Integer(KeyEvent.VK_U));
 		rangeeL.add(fauteuilL10);
 
 		JButton btnCountDown = new JButton();
@@ -644,7 +636,7 @@ public class Reservation extends JFrame {
 		fauteuilL09.setAction(fauteuilL09Action);
 		fauteuilL10.setAction(fauteuilL10Action);
 
-		btnCountDown.setAction(countDownAction);
+		//btnCountDown.setAction(countDownAction);
 		btnReset.setAction(resetAction);
 
 		// Create menu-bar
@@ -699,7 +691,7 @@ public class Reservation extends JFrame {
 		menuItem = new JMenuItem(fauteuilB10Action); // allocate menu-item and set action
 		menu.add(menuItem);
 
-		menuItem = new JMenuItem(countDownAction); // allocate menu-item and set action
+		//menuItem = new JMenuItem(countDownAction); // allocate menu-item and set action
 		menu.add(menuItem);
 
 		menuBar.add(menu);
@@ -733,13 +725,16 @@ public class Reservation extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			++count;
 			tfCount.setText(count + "");
+			
 		}
 	}
 
 	public class CountDownAction extends AbstractAction {
+		JButton btnSiege;
 		/** Constructor */
-		public CountDownAction(String name, String shortDesc, Integer mnemonic) {
+		public CountDownAction(JButton btnSiege, String name, String shortDesc, Integer mnemonic) {
 			super(name);
+			this.btnSiege = btnSiege;
 			putValue(SHORT_DESCRIPTION, shortDesc);
 			putValue(MNEMONIC_KEY, mnemonic);
 		}
@@ -748,6 +743,9 @@ public class Reservation extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			--count;
 			tfCount.setText(count + "");
+			this.btnSiege.setForeground(Color.RED);
+			this.btnSiege.setEnabled(false);
+			lstBtnSelect.add(this.btnSiege);
 		}
 	}
 
@@ -761,8 +759,12 @@ public class Reservation extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			count = 0;
+			count = 120;
 			tfCount.setText(count + "");
+			for (int i = 0; i < lstBtnSelect.size(); i++) {
+				lstBtnSelect.get(i).setEnabled(true);
+				lstBtnSelect.get(i).setForeground(Color.BLACK);
+			}
 		}
 	}
 
