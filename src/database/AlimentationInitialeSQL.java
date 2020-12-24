@@ -1,4 +1,4 @@
-package gestionClasse;
+package database;
 
 import Personne.Comedien;
 import fauteuil.Fauteuil;
@@ -61,7 +61,7 @@ public class AlimentationInitialeSQL {
 	
 	}	
 */
-	//(String numeroFauteuil, String nomSpectacle,String date, String prenom, String nom,  boolean reserve) 
+	
 	public static void creationSiege() {
 		Fauteuil fauteuilA01 = new Fauteuil( "A01", null, null, null, null, false);
 		Fauteuil fauteuilA02 = new Fauteuil( "A02", null, null, null, null, false);

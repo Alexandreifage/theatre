@@ -7,13 +7,13 @@ import spectacle.Spectacle;
 public class Artiste extends Personnel {
 	
 	private ArrayList<Spectacle> participationSpectacle;
-	private String IDSpectacle;
+	
 
 	public Artiste(String prenom, String nom, char sexe, String dateNaissance, String adresse, String telephone,
-			String email, ArrayList<Spectacle> participationSpectacle, String IDSpectacle) {
+			String email, ArrayList<Spectacle> participationSpectacle) {
 		super(prenom, nom, sexe, dateNaissance, adresse, telephone, email);
 		this.participationSpectacle = participationSpectacle;
-		this.IDSpectacle = IDSpectacle;
+		
 	}
 
 	public ArrayList<Spectacle> getParticipationSpectacle() {
@@ -24,13 +24,7 @@ public class Artiste extends Personnel {
 		this.participationSpectacle = participationSpectacle;
 	}
 
-	public String getIDSpectacle() {
-		return IDSpectacle;
-	}
-
-	public void setIDSpectacle(String iDSpectacle) {
-		IDSpectacle = iDSpectacle;
-	}
+	
 	
 	
 

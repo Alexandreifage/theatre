@@ -11,13 +11,13 @@ import java.util.ArrayList;
  * ActionListener.
  */
 @SuppressWarnings("serial")
-public class Reservation extends JFrame {
+public class AffichageSpectacle extends JFrame {
 	private JTextField tfCount;
 	private Integer count = 120;
 	ArrayList<JButton> lstBtnSelect = new ArrayList<>();
 
 	/** Constructor to setup the GUI */
-	public Reservation() {
+	public AffichageSpectacle() {
 		// Create the Actions shared by the button and menu-item
 		
 
@@ -769,11 +769,11 @@ public class Reservation extends JFrame {
 	}
 
 	/** The entry main() method */
-	public static void afficherReservation() {
+	public static void main(String[] args) {
 		// Run GUI codes in the Event-Dispatching thread for thread safety
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
-				new Reservation(); // Let the constructor does the job
+				new AffichageSpectacle(); // Let the constructor does the job
 			}
 		});
 	}
