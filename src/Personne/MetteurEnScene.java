@@ -10,5 +10,8 @@ public class MetteurEnScene extends Artiste {
 			String email, ArrayList<Spectacle> participationSpectacle) {
 		super(prenom, nom, sexe, dateNaissance, adresse, telephone, email, participationSpectacle);
 	}
+	public MetteurEnScene(String prenom, String nom) {
+		super(prenom, nom);
+	}
 	
 }

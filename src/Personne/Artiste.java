@@ -15,6 +15,12 @@ public class Artiste extends Personnel {
 		this.participationSpectacle = participationSpectacle;
 		
 	}
+	public Artiste(String prenom, String nom) {
+		super(prenom, nom);
+
+	}
+	
+	
 
 	public ArrayList<Spectacle> getParticipationSpectacle() {
 		return participationSpectacle;

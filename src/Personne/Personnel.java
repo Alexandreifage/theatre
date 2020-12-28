@@ -18,6 +18,10 @@ public class Personnel extends Personne {
 		this.email = email;
 
 	}	
+	public Personnel(String prenom, String nom) {
+		super(prenom, nom);
+		
+	}	
 	public char getSexe() {
 		return sexe;
 	}

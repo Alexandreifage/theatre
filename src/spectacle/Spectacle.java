@@ -9,6 +9,7 @@ import Personne.MetteurEnScene;
 
 public class Spectacle {
 	
+	private int id;
 	private String nomSpectacle;
 	private String date;
 	private String heure;
@@ -25,6 +26,18 @@ public class Spectacle {
 		this.lstComedien = lstComedien;	
 	}
 	
+	public Spectacle (int id, String nomSpectacle, String date, String heure, String nomAuteur, MetteurEnScene metteurEnScene, ArrayList<Comedien> lstComedien){
+		this.id = id;
+		this.nomSpectacle = nomSpectacle;
+		this.date = date;
+		this.heure = heure;
+		this.nomAuteur = nomAuteur;
+		this.metteurEnScene = metteurEnScene;
+		this.lstComedien = lstComedien;	
+	}
+	
+	
+
 	public String getNomSpectacle() {
 		return this.nomSpectacle;
 	}
