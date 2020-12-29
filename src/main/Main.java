@@ -9,6 +9,7 @@ import Personne.Comedien;
 import Personne.MetteurEnScene;
 
 import database.DatabaseConnection;
+import database.GestionFauteuil;
 import fauteuil.Fauteuil;
 
 
@@ -23,7 +24,10 @@ public class Main {
 	
 		Main nm = new Main();
 		
-		nm.creerSpectacle();
+		//nm.creerSpectacle();
+		
+		nm.retrieveAllFauteuilProcedureSQL();
+		nm.creerFauteuilProcedureSQL();
 		AffichageSpectacle.afficherSpectacle();
 		
 	}
@@ -35,7 +39,16 @@ public class Main {
 		System.out.println("creerSpectacle");
 	}
 	
-
+	public void retrieveAllFauteuilProcedureSQL() {
+		GestionFauteuil gf = GestionFauteuil.getDb();
+		gf.retrieveAllFauteuilProcedureSQL();
+		System.out.println("retrieveAllFauteuilProcedureSQL");
+	}
+	public void creerFauteuilProcedureSQL() {
+		GestionFauteuil gf = GestionFauteuil.getDb();
+		gf.creationSiegeTest3();
+		System.out.println("creationSiegeTest2");
+	}
 	
 }
 

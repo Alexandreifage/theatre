@@ -184,12 +184,15 @@ public class AlimentationInitialeSQL {
 		Fauteuil fauteuilL09 = new Fauteuil( "L09", null, null, null, null, false);
 		Fauteuil fauteuilL10 = new Fauteuil( "L10", null, null, null, null, false);
 		
-		
-		
-		
-		
-		
-		
-		
+	
 	}
+	
+	
+	public static void creationSiegeTest1() {
+		Fauteuil fauteuilA01 = new Fauteuil( "A01", "La Sirène aux Alouettes", "12.02.2021", null, null, true);
+		Fauteuil fauteuilA02 = new Fauteuil( "A02", "La Sirène aux Alouettes", "12.02.2021", null, null, true);
+		Fauteuil fauteuilA03 = new Fauteuil( "A03", "La Sirène aux Alouettes", "12.02.2021", null, null, true);
+	
+	}
+	
 }

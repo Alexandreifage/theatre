@@ -134,7 +134,7 @@ public List<Spectacle> retrieveSpectacleProcedureSQL() {
 			// (tous les infirmiers présents dans la base de données) dans rs
 			rs = stmt.executeQuery(sqlString);
 
-			System.out.println("-----------------------------------------");
+			System.out.println("méthode retrieveSpectacleProcedureSQL() de la classe GestionSpectacle");
 			
 			while (rs.next()) {		
 				
@@ -158,10 +158,6 @@ public List<Spectacle> retrieveSpectacleProcedureSQL() {
 				
 			}
 			
-
-			System.out.println("-----------------------------------------");
-			System.out.println();
-
 			rs.close();
 			stmt.close();
 
@@ -177,8 +173,7 @@ public List<Spectacle> retrieveSpectacleProcedureSQL() {
 			} catch (SQLException se2) {
 			}
 		}
-		System.out.println("");
-
+		
 		return listeSpectacle;
 	}
 	
@@ -224,6 +219,19 @@ public List<Spectacle> retrieveSpectacleProcedureSQL() {
 		createSpectacleProcedureSQL(spectacle3);
 
 	}
+	
+	public void afficherSpectacle() {
+		
+		
+		List<Spectacle> listeSpectacle = retrieveSpectacleProcedureSQL();
+		System.out.println("**********");
+		
+		System.out.println(listeSpectacle.get(0).getLstComedien());
+		
+		System.out.println("**********");
+		
+	}
+	
 	
 	
 
