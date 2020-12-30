@@ -1,5 +1,6 @@
 package database;
 
+import java.awt.Component;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,7 +18,7 @@ import spectacle.Spectacle;
 public class GestionFauteuil {
 	
 	// Création de la liste
-	public List<Fauteuil> listeAllFauteuil = new ArrayList<>();
+	static public List<Fauteuil> listeAllFauteuil = new ArrayList<>();
 	
 	private static String URL_CONNECTION =
 
@@ -31,6 +32,8 @@ public class GestionFauteuil {
 		db.openConnection();
 		System.out.println("Construction du db de GestionSpectacle au premier appel");
 	}
+	
+	
 
 	public static GestionFauteuil getDb() {
 		return db;
@@ -90,6 +93,7 @@ public List<Fauteuil> retrieveAllFauteuilProcedureSQL() {
 			System.out.println("méthode retrieveAllFauteuilProcedureSQL() de la classe GestionFauteuil");
 			
 			while (rs.next()) {		
+				
 
 				String numeroFauteuil = rs.getString(2);
 				String nomSpectacle = rs.getString(3);
@@ -911,5 +915,6 @@ private boolean convertTinyintIntoBollean(int tinyint) {
 		return true;
 	}
 }
+
 
 }

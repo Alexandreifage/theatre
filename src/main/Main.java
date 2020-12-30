@@ -26,8 +26,8 @@ public class Main {
 		
 		//nm.creerSpectacle();
 		
-		nm.retrieveAllFauteuilProcedureSQL();
-		nm.creerFauteuilProcedureSQL();
+		//nm.retrieveAllFauteuilProcedureSQL();
+		//nm.creerFauteuilProcedureSQL();
 		AffichageSpectacle.afficherSpectacle();
 		
 	}
@@ -47,7 +47,7 @@ public class Main {
 	public void creerFauteuilProcedureSQL() {
 		GestionFauteuil gf = GestionFauteuil.getDb();
 		gf.creationSiegeTest3();
-		System.out.println("creationSiegeTest2");
+		System.out.println("creationSiegeTest3");
 	}
 	
 }

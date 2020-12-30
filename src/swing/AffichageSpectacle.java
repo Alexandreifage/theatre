@@ -46,13 +46,14 @@ public class AffichageSpectacle extends JFrame {
           @Override
           public void actionPerformed(ActionEvent e) {
          	 try {
- 			
+ 			Reservation.afficherReservation(listeSpectacle.get(0));
  				
  				
  			} catch (NumberFormatException e1) {
  				// TODO Auto-generated catch block
  				e1.printStackTrace();
  			} 
+         	 
 
           }
        });
@@ -62,7 +63,7 @@ public class AffichageSpectacle extends JFrame {
       
      
    // Regular text field (Row 2)
-      tfPanel.add(new JLabel("  Spectacle n°1 "));
+      tfPanel.add(new JLabel("  Spectacle n°2 "));
       infoSpectacle2 = new JTextField(10);
       infoSpectacle2.setText(listeSpectacle.get(1).getNomSpectacle() + " | " + listeSpectacle.get(1).getNomAuteur() + " | " + listeSpectacle.get(1).getDate() + " | " + listeSpectacle.get(1).getHeure());
       infoSpectacle2.setEnabled(false);
@@ -71,7 +72,7 @@ public class AffichageSpectacle extends JFrame {
       tfPanel.add(btnreserver2);
     
    // Regular text field (Row 2)
-      tfPanel.add(new JLabel("  Spectacle n°1 "));
+      tfPanel.add(new JLabel("  Spectacle n°3 "));
       infoSpectacle3 = new JTextField(10);
       infoSpectacle3.setText(listeSpectacle.get(2).getNomSpectacle() + " | " + listeSpectacle.get(2).getNomAuteur() + " | " + listeSpectacle.get(2).getDate() + " | " + listeSpectacle.get(2).getHeure());
       infoSpectacle3.setEnabled(false);
