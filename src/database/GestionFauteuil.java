@@ -125,6 +125,44 @@ public List<Fauteuil> retrieveAllFauteuilProcedureSQL() {
 		return listeAllFauteuil;
 	}
 
+public boolean updateFauteuilProcedureSQL(String spectacleReserve, String fauteuilReserve) {
+
+	// CallableStatement utilisé lorsqu'on a besoin de fournir des paramètres à une procédure sql
+	CallableStatement stmt = null;
+	boolean resultat = false;
+	if (spectacleReserve == null || fauteuilReserve == null) {
+		return resultat;
+	}
+
+	try {
+		Class.forName("com.mysql.cj.jdbc.Driver");// fixe
+		connection = DriverManager
+				.getConnection("jdbc:mysql://localhost/Theatre?user=javauser" + "&password=javapass");
+		String sqlString = "{call updateFauteuil (?, ?)}";
+		// Préparation de la requête
+		stmt = connection.prepareCall(sqlString);
+		stmt.setString(1, spectacleReserve);
+		stmt.setString(2, fauteuilReserve);
+		
+		resultat = stmt.execute();
+		
+	} catch (SQLException se) {
+		se.printStackTrace();
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+
+		try {
+			if (stmt != null)
+				stmt.close();
+		} catch (SQLException se2) {
+		}
+	}
+	
+	
+	return resultat;
+}
+
 public  void creationSiegeTest1() {
 	/*
 	Fauteuil fauteuilA01 = new Fauteuil( "A01", "La Sirène aux Alouettes", "12.02.2021", null, null, true);

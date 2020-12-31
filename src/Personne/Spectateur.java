@@ -2,25 +2,27 @@ package Personne;
 
 public class Spectateur extends Personne {
 
-	private String date;
-	private String siege;
-	public Spectateur(String prenom, String nom, String date, String siege) {
+	private String spectacleReserve;
+	private String fauteuilReserve;
+	
+	public Spectateur(String prenom, String nom, String spectacleReserve, String fauteuilReserve) {
 		super(prenom, nom);
-		this.date = date;
-		this.siege = siege;
+		this.spectacleReserve = spectacleReserve;
+		this.fauteuilReserve = fauteuilReserve;
 	}
-	public String getDate() {
-		return date;
+
+	public String getSpectacleReserve() {
+		return spectacleReserve;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setSpectacleReserve(String spectacleReserve) {
+		this.spectacleReserve = spectacleReserve;
 	}
-	public String getSiege() {
-		return siege;
+
+	public String getFauteuilReserve() {
+		return fauteuilReserve;
 	}
-	public void setSiege(String siege) {
-		this.siege = siege;
+
+	public void setFauteuilReserve(String fauteuilReserve) {
+		this.fauteuilReserve = fauteuilReserve;
 	}
-	
-	
 }

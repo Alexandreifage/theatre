@@ -23,14 +23,16 @@ public class Reservation extends JFrame {
 	private Integer count = 120;
 	ArrayList<JButton> lstBtnSelect = new ArrayList<>();
 	ArrayList<Fauteuil> listeFauteuil = new ArrayList<>();
+	private Spectacle spectacleEnCours;
 
 	/** Constructor to setup the GUI */
 	public Reservation(Spectacle spectacle) {
 		// Create the Actions shared by the button and menu-item
 		recupererSiege(spectacle);
+		this.spectacleEnCours = spectacle;
 
 		//Action countDownAction = new CountDownAction("Count Down", "To count down", new Integer(KeyEvent.VK_D));
-		Action resetAction = new ResetAction("Reset", "To reset to zero", new Integer(KeyEvent.VK_R));
+		Action resetAction = new ResetAction("Annuler", "annuler", new Integer(KeyEvent.VK_R));
 
 		Container cp = getContentPane();
 		cp.setLayout(new FlowLayout());
@@ -183,8 +185,7 @@ public class Reservation extends JFrame {
 			
 		}
 
-		JButton btnCountDown = new JButton();
-		panelAutresBoutons.add(btnCountDown);
+		
 		JButton btnReset = new JButton();
 		panelAutresBoutons.add(btnReset);
 
@@ -239,11 +240,14 @@ public class Reservation extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			--count;
-			tfCount.setText(count + "");
-			this.btnSiege.setForeground(Color.RED);
+			count--;
+			//tfCount.setText(count + "");
+			//this.btnSiege.setForeground(Color.RED);
 			this.btnSiege.setEnabled(false);
 			lstBtnSelect.add(this.btnSiege);
+			ReservationSpectateur.afficherSaisieSpectateur(spectacleEnCours.getNomSpectacle(), this.btnSiege.getText());
+			
+			
 		}
 	}
 
@@ -257,13 +261,22 @@ public class Reservation extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			count = 120;
-			tfCount.setText(count + "");
-			for (int i = 0; i < lstBtnSelect.size(); i++) {
-				lstBtnSelect.get(i).setEnabled(true);
-				lstBtnSelect.get(i).setForeground(Color.BLACK);
+			
+			dispose();
+			
+
+		}
+	}
+	
+	public int compterPlacesDisponibles() {
+		int nbrPlacesDispo = 0;
+		for (int i = 0 ; i < listeFauteuil.size(); i++) {
+			if (listeFauteuil.get(i).isReserve()) {
+				nbrPlacesDispo = nbrPlacesDispo + 1;
 			}
 		}
+		
+		return nbrPlacesDispo;
 	}
 	
 	public  void recupererSiege(Spectacle spectacle) {
@@ -271,12 +284,14 @@ public class Reservation extends JFrame {
 		GestionFauteuil gf = GestionFauteuil.getDb();
 		
 		List<Fauteuil> lstAllFauteuil = gf.retrieveAllFauteuilProcedureSQL();
-		for (int i = 0; i < lstAllFauteuil.size(); i++) {
+		
+		for (int i = 0; i < lstAllFauteuil.size(); i++) {	
 			Fauteuil f = lstAllFauteuil.get(i);
 			if (f.getNomSpectacle().equals(spectacle.getNomSpectacle()) && f.getDate().equals(spectacle.getDate())) {
 				listeFauteuil.add(f);
-			}
+			}		
 		}
+		count = compterPlacesDisponibles();
 	}
 
 	/** The entry main() method */

@@ -69,6 +69,21 @@ public class AffichageSpectacle extends JFrame {
       infoSpectacle2.setEnabled(false);
       tfPanel.add(infoSpectacle2);
       JButton btnreserver2 = new JButton("Reserver");
+      btnreserver2.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+         	 try {
+ 			Reservation.afficherReservation(listeSpectacle.get(1));
+ 				
+ 				
+ 			} catch (NumberFormatException e1) {
+ 				// TODO Auto-generated catch block
+ 				e1.printStackTrace();
+ 			} 
+         	 
+
+          }
+       });
       tfPanel.add(btnreserver2);
     
    // Regular text field (Row 2)
@@ -78,6 +93,21 @@ public class AffichageSpectacle extends JFrame {
       infoSpectacle3.setEnabled(false);
       tfPanel.add(infoSpectacle3);
       JButton btnreserver3 = new JButton("Reserver");
+      btnreserver3.addActionListener(new ActionListener() {
+          @Override
+          public void actionPerformed(ActionEvent e) {
+         	 try {
+ 			Reservation.afficherReservation(listeSpectacle.get(2));
+ 				
+ 				
+ 			} catch (NumberFormatException e1) {
+ 				// TODO Auto-generated catch block
+ 				e1.printStackTrace();
+ 			} 
+         	 
+
+          }
+       });
       tfPanel.add(btnreserver3);
     
      
