@@ -16,6 +16,7 @@ import fauteuil.Fauteuil;
 import database.GestionSpectacle;
 import spectacle.Spectacle;
 import swing.AffichageSpectacle;
+import swing.HomePage;
 import swing.ReservationSpectateur;
 
 
@@ -29,7 +30,8 @@ public class Main {
 		
 		//nm.retrieveAllFauteuilProcedureSQL();
 		//nm.creerFauteuilProcedureSQL();
-		AffichageSpectacle.afficherSpectacle();
+		HomePage.afficherHomePage();
+		//AffichageSpectacle.afficherSpectacle();
 		//ReservationSpectateur.afficherSaisieSpectateur();
 	}
 	

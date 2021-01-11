@@ -22,7 +22,8 @@ public class DatabaseConnection {
 
 	private static Connection connection;
 	private static final DatabaseConnection db = new DatabaseConnection();
-
+	
+	//constructeur
 	private DatabaseConnection() {
 		db.openConnection();
 		System.out.println("Construction du db au premier appel");

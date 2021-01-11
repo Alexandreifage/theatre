@@ -13,6 +13,12 @@ public class Comedien extends Artiste {
 		super(prenom, nom, sexe, dateNaissance, adresse, telephone, email, participationSpectacle);
 		this.taille = taille;
 	}
+	
+	public Comedien(String prenom, String nom, char sexe, String dateNaissance, String adresse, String telephone,
+			String email, int taille) {
+		super(prenom, nom, sexe, dateNaissance, adresse, telephone, email);
+	}
+	
 	public Comedien(String prenom, String nom) {
 		super(prenom, nom);
 		

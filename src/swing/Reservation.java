@@ -131,6 +131,8 @@ public class Reservation extends JFrame {
 		panelAutresBoutons.setPreferredSize(new Dimension(810, 50));
 		panelAutresBoutons.setAlignmentX(JPanel.CENTER_ALIGNMENT);
 		cp.add(panelAutresBoutons);
+		
+		
 
 		// Create buttons
 		panelAutresBoutons.add(new JLabel("Nombre de places restantes:"));

@@ -20,6 +20,11 @@ public class Artiste extends Personnel {
 
 	}
 	
+	public Artiste(String prenom, String nom, char sexe, String dateNaissance, String adresse, String telephone,
+			String email) {
+		super(prenom, nom);
+	}
+	
 	
 
 	public ArrayList<Spectacle> getParticipationSpectacle() {

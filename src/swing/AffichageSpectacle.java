@@ -126,8 +126,8 @@ public class AffichageSpectacle extends JFrame {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			} 
-        	 
-        	 System.exit(0);
+        	 setVisible(false);
+        	 //System.exit(0);
           
          }
       });
