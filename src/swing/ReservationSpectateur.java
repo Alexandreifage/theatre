@@ -8,14 +8,15 @@ import javax.swing.*;
 import Personne.Spectateur;
 import database.GestionFauteuil;
 import database.GestionSpectateur;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /** Test JTextField, JPasswordField, JFormattedTextField, JTextArea */
 @SuppressWarnings("serial")
 public class ReservationSpectateur extends JFrame {
  
    // Private variables of the GUI components
-   JTextField nom;
-   JTextField prenom;
+   static JTextField nom;
+   static JTextField prenom;
    JTextField tfSpectacleReserve;
    JTextField tfFauteuilReserve;
   
@@ -59,10 +60,24 @@ public class ReservationSpectateur extends JFrame {
          @Override
          public void actionPerformed(ActionEvent e) {
         	 try {
-				Spectateur spectateur = new Spectateur(prenom.getText(), nom.getText(), tfSpectacleReserve.getText(), tfFauteuilReserve.getText());
-				System.out.println(spectateur);
-				createReservationSpectateurProcedureSQL(spectateur);
-				updateFauteuilProcedureSQL(spectacleReserve, fauteuilReserve);
+        		if (ReservationSpectateur.prenom.getText().equals("") && ReservationSpectateur.nom.getText().equals("")) {
+        			JFrame frame = new JFrame("Réservation de siège");
+        			frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        			
+        			JOptionPane.showMessageDialog(frame,
+        			        "Veuillez remplir les champs prénom et nom'" ,
+        			        "Problème de réservation",
+        			        JOptionPane.INFORMATION_MESSAGE);
+        			
+        		
+				
+        		} else {
+        			Spectateur spectateur = new Spectateur(prenom.getText(), nom.getText(), tfSpectacleReserve.getText(), tfFauteuilReserve.getText());
+    				System.out.println(spectateur);
+    				createReservationSpectateurProcedureSQL(spectateur);
+    				updateFauteuilProcedureSQL(spectacleReserve, fauteuilReserve);
+        			
+        		}
 				
 			} catch (NumberFormatException e1) {
 				// TODO Auto-generated catch block
@@ -78,6 +93,18 @@ public class ReservationSpectateur extends JFrame {
       });
       
       
+      JButton btnQuitter = new JButton("Quitter");
+      
+      tfPanel.add(btnQuitter);
+      btnQuitter.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+        	
+        	 dispose();
+        	 //System.exit(0);
+          
+         }
+      });
       
 
       // Setup the content-pane of JFrame in BorderLayout
@@ -89,7 +116,7 @@ public class ReservationSpectateur extends JFrame {
       setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
       
       setTitle("Nouvelle Réservation");
-      setSize(500, 400);
+      setSize(500, 450);
       setVisible(true);
       
       

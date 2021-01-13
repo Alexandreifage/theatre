@@ -126,7 +126,9 @@ public List<Spectateur> retrieveAllSpectateurProcedureSQL() {
 			// pour parcourir rs 
 			while (rs.next()) {
 				// création des new
-				Spectateur SpectateurRetrieve = new Spectateur(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+				System.out.println("ici");
+				System.out.println(rs.getString(1));
+				Spectateur SpectateurRetrieve = new Spectateur(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
 
 				listeAllSpectateur.add(SpectateurRetrieve);
 

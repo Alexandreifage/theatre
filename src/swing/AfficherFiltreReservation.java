@@ -57,9 +57,28 @@ public class AfficherFiltreReservation {
                 } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
                     ex.printStackTrace();
                 }
-                
-                
-
+               
+                //new
+                GestionSpectateur gs = GestionSpectateur.getDb();
+        		
+        		List<Spectateur> lstAllSpectateur = gs.retrieveAllSpectateurProcedureSQL();
+        		
+        		 DefaultTableModel model = new DefaultTableModel(new Object[]{"Prénom", "Nom", "Spectacle", "Fauteuil"}, 0);
+        		 
+        		for (int i = 0; i < lstAllSpectateur.size(); i++) {	
+        			Spectateur spe = lstAllSpectateur.get(i);
+        			model.addRow(new Object[]{spe.getPrenom(), spe.getNom(), spe.getSpectacleReserve(), spe.getFauteuilReserve()});
+        			System.out.println("++++");
+        			System.out.println(spe.getPrenom());
+        			System.out.println(("++++"));
+        			}	
+        		
+        		 table = new JTable(model);
+                 table.setRowSorter(new TableRowSorter<TableModel>(model));
+                // fin new
+        		
+        		 /*
+        		// ancien
                 DefaultTableModel model = new DefaultTableModel(new Object[]{"Prénom", "Nom", "Spectacle", "Fauteuil"}, 0);
                 model.addRow(new Object[]{"Paul", "Chatenou", "La Sirène aux Alouettes", "A01"});
                 model.addRow(new Object[]{"Georges", "Luthi", "Huis clos", "F04"});
@@ -69,8 +88,8 @@ public class AfficherFiltreReservation {
 
                 table = new JTable(model);
                 table.setRowSorter(new TableRowSorter<TableModel>(model));
-                
-                
+              //fin ancien
+                */
 
                 JPanel filterPane = new JPanel(new GridBagLayout());
                 filterBy = new JComboBox(new Object[]{"Aucun filtre", "Filtrer par prénom", "Filtrer par nom", "Filtrer par spectacle", "Filtrer par fauteuil"});
@@ -102,6 +121,7 @@ public class AfficherFiltreReservation {
                     }
                 });
 
+                
                 JFrame frame = new JFrame("Réservations");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.add(filterPane, BorderLayout.NORTH);
@@ -109,8 +129,11 @@ public class AfficherFiltreReservation {
                 frame.pack();
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                
             }
         });
+        
     }
     protected void updateFilter() {
         Object selected = filterBy.getSelectedItem();

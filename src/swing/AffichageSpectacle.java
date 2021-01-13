@@ -112,21 +112,14 @@ public class AffichageSpectacle extends JFrame {
     
      
    
-      JButton btnEnregistrer = new JButton("Annuler");
+      JButton btnQuitter = new JButton("Quitter");
      
-      tfPanel.add(btnEnregistrer);
-      btnEnregistrer.addActionListener(new ActionListener() {
+      tfPanel.add(btnQuitter);
+      btnQuitter.addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
-        	 try {
-			
-				
-				
-			} catch (NumberFormatException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} 
-        	 setVisible(false);
+        	
+        	 dispose();
         	 //System.exit(0);
           
          }
@@ -139,9 +132,10 @@ public class AffichageSpectacle extends JFrame {
       Container cp = this.getContentPane();
       cp.setLayout(new BorderLayout(5, 5));
       cp.add(tfPanel, BorderLayout.NORTH);
+      setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
      
  
-      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      
       setTitle("Réservation Spectacle");
       setSize(500, 450);
       setVisible(true);

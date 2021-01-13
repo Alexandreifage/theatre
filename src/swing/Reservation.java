@@ -20,10 +20,11 @@ import java.util.List;
 @SuppressWarnings("serial")
 public class Reservation extends JFrame {
 	private JTextField tfCount;
-	private Integer count = 120;
+	private Integer count;
 	ArrayList<JButton> lstBtnSelect = new ArrayList<>();
 	ArrayList<Fauteuil> listeFauteuil = new ArrayList<>();
 	private Spectacle spectacleEnCours;
+	List<Fauteuil> lstAllFauteuil = new ArrayList<>();
 
 	/** Constructor to setup the GUI */
 	public Reservation(Spectacle spectacle) {
@@ -32,7 +33,8 @@ public class Reservation extends JFrame {
 		this.spectacleEnCours = spectacle;
 
 		//Action countDownAction = new CountDownAction("Count Down", "To count down", new Integer(KeyEvent.VK_D));
-		Action resetAction = new ResetAction("Annuler", "annuler", new Integer(KeyEvent.VK_R));
+		Action resetAction = new ResetAction("Quitter", "quitter", new Integer(KeyEvent.VK_R),lstAllFauteuil);
+		
 
 		Container cp = getContentPane();
 		cp.setLayout(new FlowLayout());
@@ -188,7 +190,7 @@ public class Reservation extends JFrame {
 		}
 
 		
-		JButton btnReset = new JButton();
+		JButton btnReset = new JButton("Annuler");
 		panelAutresBoutons.add(btnReset);
 
 		//btnCountDown.setAction(countDownAction);
@@ -198,14 +200,16 @@ public class Reservation extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		JMenu menu;
 		JMenuItem menuItem;
-		;
+		
+		
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		// Create the first menu
 		menu = new JMenu("Count");
 		menu.setMnemonic(KeyEvent.VK_C);
 
 		setJMenuBar(menuBar); // "this" JFrame sets menu-bar
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		setTitle("Scène");
 		setSize(1600, 1000);
 		setVisible(true);
@@ -255,8 +259,10 @@ public class Reservation extends JFrame {
 
 	public class ResetAction extends AbstractAction {
 		/** Constructor */
-		public ResetAction(String name, String shortDesc, Integer mnemonic) {
+		private List<Fauteuil> lst;
+		public ResetAction(String name, String shortDesc, Integer mnemonic, List<Fauteuil> lst) {
 			super(name);
+			this.lst = lst;
 			putValue(SHORT_DESCRIPTION, shortDesc);
 			putValue(MNEMONIC_KEY, mnemonic);
 		}
@@ -264,6 +270,7 @@ public class Reservation extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
+			this.lst.clear();
 			dispose();
 			
 
@@ -271,21 +278,23 @@ public class Reservation extends JFrame {
 	}
 	
 	public int compterPlacesDisponibles() {
+		this.count = 0;
 		int nbrPlacesDispo = 0;
 		for (int i = 0 ; i < listeFauteuil.size(); i++) {
 			if (listeFauteuil.get(i).isReserve()) {
 				nbrPlacesDispo = nbrPlacesDispo + 1;
 			}
 		}
-		
 		return nbrPlacesDispo;
 	}
 	
 	public  void recupererSiege(Spectacle spectacle) {
 		
 		GestionFauteuil gf = GestionFauteuil.getDb();
+		listeFauteuil.clear();
 		
-		List<Fauteuil> lstAllFauteuil = gf.retrieveAllFauteuilProcedureSQL();
+		this.lstAllFauteuil = gf.retrieveAllFauteuilProcedureSQL();
+		System.out.println(lstAllFauteuil.size());
 		
 		for (int i = 0; i < lstAllFauteuil.size(); i++) {	
 			Fauteuil f = lstAllFauteuil.get(i);
@@ -293,6 +302,7 @@ public class Reservation extends JFrame {
 				listeFauteuil.add(f);
 			}		
 		}
+
 		count = compterPlacesDisponibles();
 	}
 
